@@ -7,8 +7,6 @@ function updateSubtotal($product, productIndex) {
   
   let $price = Number($priceObj[productIndex].textContent);
   let $quantity = + Number($quantityObj[productIndex].valueAsNumber);
-  // console.log('price ' + $price);
-  // console.log('quanity ' + $quantity);
   $subtotalObj[productIndex].innerText = ($price * $quantity).toFixed(2);
   return $price * $quantity;
 }
@@ -23,8 +21,6 @@ function calculateAll() {
   // }
 
   // ITERATION 3
-  // sum the product subtotals
-
   let $products = document.querySelectorAll('.product');
   let total = 0;
   for (let productIndex=0; productIndex < $products.length; productIndex++) {
@@ -61,12 +57,7 @@ document.querySelectorAll('.btn-remove').forEach(element => {
 function createProduct(event) {
   let $newProduct = document.querySelector('.create-product input[type=text]').value;
   let $newPrice = document.querySelector('.create-product input[type=number]').valueAsNumber;
-  // let $newRow = document.querySelectorAll('#cart > tbody > tr').length;
-  // console.log($newProduct);
-  // console.log($newPrice);
-  // console.log($newRow);
   let $table = document.querySelector('#cart > tbody')
-  // let $row = $table.insertRow($newRow);
   $table.innerHTML += ` 
   <tr class="product">
     <td class="name">
@@ -90,11 +81,6 @@ function createProduct(event) {
   document.querySelectorAll('.btn-remove').forEach(element => {
     element.addEventListener('click', addProductRemoveListener);
   });
-
-  // let c1 = row.insertCell(0);
-  // let c2 = row.insertCell(1);
-  // c1.innerHTML = "NEW CELL1";
-  // c2.innerHTML = "NEW CELL2";
 }
 // Trigger to add products
 document.querySelectorAll('#create').forEach(element => {
